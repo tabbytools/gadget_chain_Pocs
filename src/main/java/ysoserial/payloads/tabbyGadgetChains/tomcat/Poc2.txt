@@ -1,0 +1,1 @@
+"{\"@type\":\"org.apache.tomcat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS\",\"url\":\"jdbc:mysql://127.0.0.1:8990/test\"}";

