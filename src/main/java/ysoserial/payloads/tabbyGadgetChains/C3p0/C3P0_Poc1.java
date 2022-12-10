@@ -1,4 +1,4 @@
-package payload;
+package ysoserial.payloads.tabbyGadgetChains.C3p0;
 
 import com.mchange.v2.c3p0.impl.JndiRefDataSourceBase;
 

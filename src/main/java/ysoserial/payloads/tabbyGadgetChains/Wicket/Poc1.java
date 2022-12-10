@@ -1,4 +1,4 @@
-package ysoserial.payloads;
+package ysoserial.payloads.tabbyGadgetChains.Wicket;
 
 
 import java.io.File;
@@ -11,6 +11,7 @@ import org.apache.wicket.util.upload.DiskFileItem;
 import org.apache.wicket.util.io.DeferredFileOutputStream;
 import org.apache.wicket.util.io.ThresholdingOutputStream;
 
+import ysoserial.payloads.ReleaseableObjectPayload;
 import ysoserial.payloads.annotation.Authors;
 import ysoserial.payloads.annotation.Dependencies;
 import ysoserial.payloads.annotation.PayloadTest;
@@ -84,6 +85,6 @@ public class Poc1 implements ReleaseableObjectPayload<DiskFileItem> {
     }
 
     public static void main ( final String[] args ) throws Exception {
-        PayloadRunner.run(FileUpload1.class, args);
+        PayloadRunner.run(ysoserial.payloads.tabbyGadgetChains.Wicket.Poc1.class, args);
     }
 }

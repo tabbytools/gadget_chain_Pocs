@@ -1,4 +1,4 @@
-package payload;
+package ysoserial.payloads.tabbyGadgetChains.CommonCollections4;
 
 import com.sun.org.apache.xalan.internal.xsltc.trax.TrAXFilter;
 import org.apache.commons.collections4.keyvalue.TiedMapEntry;

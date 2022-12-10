@@ -1,2 +1,0 @@
-JtaTransactionManager jtaTransactionManager = new JtaTransactionManager();
-jtaTransactionManager.setUserTransactionName("ldap://10.10.18.254:1699/ExecTest");

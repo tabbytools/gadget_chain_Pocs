@@ -1,4 +1,4 @@
-package payload;
+package ysoserial.payloads.tabbyGadgetChains.CommonCollections4;
 
 
 import org.apache.commons.collections4.functors.InvokerTransformer;

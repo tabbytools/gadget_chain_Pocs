@@ -1,4 +1,4 @@
-package payload;
+package ysoserial.payloads.tabbyGadgetChains.CommonCollections4;
 
 import com.sun.org.apache.xalan.internal.xsltc.trax.TrAXFilter;
 import org.apache.commons.collections4.Transformer;
@@ -36,7 +36,7 @@ import java.util.TreeMap;
 
  */
 
-//CCV4_24_23
+
 
 public class CC4_Poc7 {
     public static void main(String[] args) throws Exception {

