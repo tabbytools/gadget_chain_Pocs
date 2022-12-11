@@ -14,6 +14,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
+ * gadget chain
  * java.util.PriorityQueue.readObject()
  * java.util.PriorityQueue.heapify()
  * java.util.PriorityQueue.siftDown()
@@ -25,6 +26,7 @@ import java.util.PriorityQueue;
  * org.apache.click.util.PropertyUtils.getObjectPropertyValue()
  * java.lang.reflect.Method.invoke()
  * com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl.getOutputProperties()
+ * ...
  */
 
 
